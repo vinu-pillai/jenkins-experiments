@@ -23,7 +23,7 @@ pipeline {
                 message 'Sure you wanna deploy?'
                 ok 'Proceed!'
                 parameters {
-                    string(name: 'TARGET_ENVIRONMENT', defaultvalue: 'PROD', description:'Target deplyment infra')
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description:'Target deplyment infra')
                 }
             }
             steps {
