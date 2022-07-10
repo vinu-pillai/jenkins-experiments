@@ -55,17 +55,30 @@ COPY ./scripts/ ${JENKINS_HOME}/init.groovy.d/
 
 USER root
 
+# Just for my sanity... Show me this distro information!
+RUN uname -a && cat /etc/*release
+
+# Based on instructiions at https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
+# Install depency for dotnet core 2.
+RUN apk update \
+    && apk install -y --no-install-recommends \
+    curl libunwind8 gettext apt-transport-https && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
+    mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
+    sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/dotnetdev.list' && \
+    apk update
+
 # Install dependencies 
-RUN apt-get install wget
+RUN apk install wget
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
 RUN rm packages-microsoft-prod.deb
 
 # Install .NET SDK 6.0
-RUN apt-get update; 
-RUN apt-get install -y apt-transport-https
-RUN apt-get update
-RUN apt-get install -y dotnet-sdk-6.0
+RUN apk update; 
+RUN apk install -y apt-transport-https
+RUN apk update
+RUN apk install -y dotnet-sdk-6.0
 RUN dotnet --version
 
 # Good idea to switch back to the jenkins user.
