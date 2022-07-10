@@ -61,7 +61,7 @@ RUN uname -a && cat /etc/*release
 # Based on instructiions at https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
 # Install depency for dotnet core 2.
 RUN apk update \
-    && apk install -y --no-install-recommends \
+    && apk add -y --no-install-recommends \
     curl libunwind8 gettext apt-transport-https && \
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
     mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
@@ -69,16 +69,16 @@ RUN apk update \
     apk update
 
 # Install dependencies 
-RUN apk install wget
+RUN apk add wget
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
 RUN rm packages-microsoft-prod.deb
 
 # Install .NET SDK 6.0
 RUN apk update; 
-RUN apk install -y apt-transport-https
+RUN apk add -y apt-transport-https
 RUN apk update
-RUN apk install -y dotnet-sdk-6.0
+RUN apk add -y dotnet-sdk-6.0
 RUN dotnet --version
 
 # Good idea to switch back to the jenkins user.
