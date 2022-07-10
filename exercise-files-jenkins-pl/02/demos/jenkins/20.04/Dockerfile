@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     openjdk11 \
     openssh-client \
     ttf-dejavu \
-    unzip 
+    unzip
 
 # compose deps
 RUN apk add --no-cache \
@@ -59,7 +59,7 @@ RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
 RUN apk add libgdiplus --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
 
 RUN mkdir -p /usr/share/dotnet \
-    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
 RUN wget https://dot.net/v1/dotnet-install.sh
 RUN chmod +x dotnet-install.sh
@@ -68,5 +68,3 @@ RUN ./dotnet-install.sh -c 5.0 --install-dir /usr/share/dotnet
 RUN ./dotnet-install.sh -c 6.0 --install-dir /usr/share/dotnet
 RUN dotnet --version
 
-# Good idea to switch back to the jenkins user.
-USER jenkins
