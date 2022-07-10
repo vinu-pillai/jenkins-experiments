@@ -51,5 +51,8 @@ pipeline {
         always {
             echo "Print it! whether deployment is SUCCESS or FAILURE, just print it!"
         }
+        cleanup {
+            echo "Looks clean now!?"
+        }
     }
 }
