@@ -43,7 +43,7 @@ pipeline {
                 }
             }
             steps {
-                echo "Deploying release #${RELEASE} to environment ${1TARGET_ENVIRONMENT}"
+                echo "Deploying release #${RELEASE} to environment ${TARGET_ENVIRONMENT}"
             }
         }
     }
