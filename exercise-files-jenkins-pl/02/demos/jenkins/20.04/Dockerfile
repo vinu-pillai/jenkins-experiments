@@ -29,6 +29,8 @@ RUN apk add --no-cache \
     python-dev \
     py-pip
 
+RUN pip install --upgrade pip
+
 RUN pip install docker-compose
 
 ARG JENKINS_VERSION="2.222.1"
