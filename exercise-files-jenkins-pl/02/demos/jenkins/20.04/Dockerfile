@@ -26,15 +26,12 @@ RUN apk add --no-cache \
     libffi-dev \
     make \
     openssl-dev \
-    python-dev \
-    py-pip
+    python3-dev \
+    py3-pip
 
 #RUN pip install --upgrade pip
 
 #RUN pip install docker-compose
-
-python3-dev \
-py3-pip
 
 RUN python3 -m venv /opt/venv
 RUN . /opt/venv/bin/activate && pip3 install --upgrade pip
