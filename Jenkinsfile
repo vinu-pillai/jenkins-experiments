@@ -43,16 +43,22 @@ pipeline {
                 }
             }
             steps {
-                echo "Deploying release #${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+                echo "Deploying release #${RELEASE} to environment ${1TARGET_ENVIRONMENT}"
             }
         }
     }
     post {
-        always {
-            echo "Print it! whether deployment is SUCCESS or FAILURE, just print it!"
-        }
+        // always {
+        //     echo "Print it! whether deployment is SUCCESS or FAILURE, just print it!"
+        // }
         cleanup {
             echo "Looks clean now!?"
+        }
+        success {
+            echo "I am successfull"
+        }
+        failure {
+            echo "Without failure how will your learn?"
         }
     }
 }
