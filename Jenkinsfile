@@ -13,17 +13,17 @@ pipeline {
             parallel {
                 stage('linux-x64') {
                     steps {
-                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL} on agent $NODE_NAME"
                     }
                 }
                 stage('windows-x86'){
                     steps {
-                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL} on agent $NODE_NAME"
                     }
                 }
                 stage('ubuntu-x86'){
                     steps {
-                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL} on agent $NODE_NAME"
                     }
                 }
             }
