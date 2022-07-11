@@ -13,6 +13,7 @@ pipeline {
                 dotnet --list-sdks
                 dotnet --list-runtimes
                 '''
+                echo "${JENKINS_HOME}"
             }
         }
         stage('Build') {
