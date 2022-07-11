@@ -30,7 +30,7 @@ pipeline {
         stage('Smoke Test'){
             steps {
                 //sh 'dotnet src/Pi.Web/bin/debug/netcoreapp3.1/Pi.Web.dll'
-                sh 'dotnet /data/workspace/initial-pipeline/src/Pi.Web/bin/Debug/netcoreapp3.1/Pi.Web.dll'
+                sh 'dotnet "${WORKSPACE}"/src/Pi.Web/bin/Debug/netcoreapp3.1/Pi.Web.dll'
             }
         }
     }
