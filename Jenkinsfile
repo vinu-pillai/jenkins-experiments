@@ -7,13 +7,7 @@ pipeline {
     stages {
         stage('Audit tools') {
             steps {
-                sh '''
-                git version
-                docker version
-                dotnet --list-sdks
-                dotnet --list-runtimes
-                '''
-                echo "${JENKINS_HOME}"
+                auditTools()
             }
         }
         stage('Build') {
@@ -42,4 +36,15 @@ pipeline {
     }
 
 
+}
+
+void auditTools() {
+    sh '''
+    git version
+    docker version
+    dotnet --list-sdks
+    dotnet --list-runtimes
+    '''
+    echo "Jenkins home directory is: ${JENKINS_HOME}"
+    echo "Jenkins workspace is: ${WORKSPACE}"
 }
