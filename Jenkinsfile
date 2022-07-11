@@ -28,8 +28,13 @@ pipeline {
                     dotnet test --logger "trx;LogFileName=Pi.Math.trx" Pi.Math.Tests/Pi.Math.Tests.csproj
                     dotnet test --logger "trx;LogFileName=Pi.Runtime.trx" Pi.Runtime.Tests/Pi.Runtime.Tests.csproj
                     '''
-                    mstest testResultsFile:"**/*.trx", keepLongStdio: true
+                    //mstest testResultsFile:"**/*.trx", keepLongStdio: true
                 }
+            }
+        }
+        stage('Smoke Test'){
+            steps {
+                sh 'dotnet ./src/Pi.Web/bin/debug/netcoreapp3.1/Pi.Web.dll'
             }
         }
     }
