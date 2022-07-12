@@ -50,6 +50,9 @@ void auditTools() {
     dotnet --list-sdks
     dotnet --list-runtimes
     '''
+    sh 'printenv'
+    sh 'ls -l "$WORKSPACE"'    
+    echo "******************************************"
     echo "Jenkins home directory is: ${JENKINS_HOME}"
     echo "Jenkins workspace is: ${WORKSPACE}"
 }
