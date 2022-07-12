@@ -1,7 +1,7 @@
 pipeline {
     //agent any
     agent {
-        docker {
+        any {
             image 'mcr.microsoft.com/dotnet/core/sdk:3.1.101'
         }
     }
