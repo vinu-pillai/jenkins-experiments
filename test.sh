@@ -1,2 +1,3 @@
 #!/bin/sh
-adfaecho "I came out of this script!"
+echo "I came out of this script!"
+ls -l /etc/passwd1
