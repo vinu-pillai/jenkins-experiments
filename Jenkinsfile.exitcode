@@ -23,7 +23,7 @@ pipeline {
                     chmod 755 test.sh
                     eval ${buildcmd}
                     """
-                    if(status = 0)
+                    if(status == 0)
                     {
                         echo "Port is in use!, killing the task..."
                     error("Failure")
