@@ -9,7 +9,7 @@ pipeline {
         stage('Display Build ID') {
             steps {
                 script {
-                    def buildcmd = "./test.sh"
+                    def buildcmd = "/data/workspace/test-exit-code/test.sh"
                     def status = sh returnStatus: true, script:"""cd /data
                     eval ${buildcmd}
                     """
