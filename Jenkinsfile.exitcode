@@ -6,7 +6,13 @@ pipeline {
     }
 
     stages {
-        stage('Display Build ID') {
+        stage('Downloading Jars') {
+            steps {
+                echo "Downloading Jars...."
+                sleep 15
+            }
+        }
+        stage('Pre Deployment Check') {
             steps {
                 script {
                     def buildcmd = "./test.sh"
@@ -28,6 +34,11 @@ pipeline {
                     }
 
                 }
+            }
+        }
+        stage('Start the services') {
+            steps {
+                echo "Starting the services..."
             }
         }
     }
