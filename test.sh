@@ -1,3 +1,3 @@
 #!/bin/sh
 echo "I came out of this script!"
-ls -l /etc/passwd1
+ls -l /etc/passwd
