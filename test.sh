@@ -1,3 +1,3 @@
 #!/bin/sh
 echo "I came out of this script!"
-ls -l /etc/passwd
+netstat -an|grep 8080
