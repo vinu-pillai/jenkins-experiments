@@ -9,8 +9,12 @@ pipeline {
         stage('Display Build ID') {
             steps {
                 script {
-                    def buildcmd = "/data/workspace/test-exit-code/test.sh"
-                    def status = sh returnStatus: true, script:"""cd /data
+                    def buildcmd = "./test.sh"
+                    def status = sh returnStatus: true, 
+                    script:
+                    """
+                    cd /data/workspace/test-exit-code
+                    chmod 755 test.sh
                     eval ${buildcmd}
                     """
                     if(status != 0)
