@@ -20,6 +20,7 @@ pipeline {
                     if(status != 0)
                     {
                     error("Failure")
+                    currentBuild.result = 'FAILURE'
                     }
                 }
             }
