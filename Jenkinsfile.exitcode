@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     def buildcmd = "./test.sh"
-                    def status = sh returnStatus: false, 
+                    def status = sh returnStatus: true, 
                     script:
                     """
                     cd /data/workspace/test-exit-code
