@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    
+    environment { 
+        Demo = 'first'
+    }
+
+    stages {
+        stage('Display Build ID') {
+            steps {
+                    def buildcmd = "./test.sh"
+                    def status = sh returnStatus: true, script:"""cd /data
+                    eval ${buildcmd}
+                    """
+                    if(status != 0)
+                    {
+                    error("Failure")
+                    }
+            }
+        }
+    }
+}
+
+

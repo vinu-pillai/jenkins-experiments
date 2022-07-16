@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "Inside the script, demo $DEMO"
+echo "I came out of this script!"
