@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Display Build ID') {
             steps {
+                script {
                     def buildcmd = "./test.sh"
                     def status = sh returnStatus: true, script:"""cd /data
                     eval ${buildcmd}
@@ -16,6 +17,7 @@ pipeline {
                     {
                     error("Failure")
                     }
+                }
             }
         }
     }
