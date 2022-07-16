@@ -19,9 +19,14 @@ pipeline {
                     """
                     if(status != 0)
                     {
-                    //error("Failure")
-                    currentBuild.result = 'FAILURE'
+                        echo "Port is in use!, killing the task..."
+                    error("Failure")
+                    //currentBuild.result = 'FAILURE'
                     }
+                    else {
+                        echo "Nothing to kill, proceed with new deployment!"
+                    }
+
                 }
             }
         }
