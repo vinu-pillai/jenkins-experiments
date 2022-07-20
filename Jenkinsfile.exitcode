@@ -62,12 +62,8 @@ pipeline {
         success { 
             echo 'The pipeline is success'
         }
-    }
-    post { 
         unsuccessful { 
             echo 'The pipeline is failed!. Well try again.'
-        }
-    }    
+        }        
+    }
 }
-
-
