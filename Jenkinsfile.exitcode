@@ -1,3 +1,9 @@
+/* HTTP STATUS CODE SYNTAX
+
+curl --output /dev/null --silent --write-out \"%%{$http_code}}\" --connect-timeout 5 --max-time 5 --retry 5 --retry-delay 5 --retry-max-time 30 \"${url}\""
+
+*/
+
 pipeline {
     agent any
     
@@ -44,6 +50,10 @@ pipeline {
         stage('Verify status code') {
             steps {
                 echo "Checking status code 200...."
+                int status = sh(script: "curl -sLI -w '%{http_code}' www.google.com -o /dev/null", returnStdout: true)
+                if (status != 200 && status != 201) {
+                    error("Returned status code = $status when calling $url")
+                    }                
             }
         }
     }
